@@ -6,14 +6,6 @@ import { useState } from "react";
 function App() {
   const [selectedSlug, setSelectedSlug] = useState("");
 
-  const toggle = (slug) => {
-    if (slug === selectedSlug) {
-      setSelectedSlug("");
-    } else {
-      setSelectedSlug(slug);
-    }
-  };
-
   return (
     <div className="App">
       <div className="page-header">
@@ -30,7 +22,9 @@ function App() {
         <Card
           {...word}
           isOpen={word.slug === selectedSlug}
-          onCardClick={() => toggle(word.slug)}
+          onCardClick={() =>
+            setSelectedSlug(word.slug === selectedSlug ? "" : word.slug)
+          }
         />
       ))}
     </div>
