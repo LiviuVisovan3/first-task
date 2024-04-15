@@ -17,7 +17,7 @@ export function Card({
   isOpen,
 }) {
   return (
-    <div className={`card ${partOfSpeech}`} onClick={() => onCardClick(slug)}>
+    <div className={`card ${partOfSpeech}`} onClick={() => onCardClick()}>
       <div className="word-header">
         <img src={`images/${slug}.jpeg`}></img>
         <div className="part-of-speech">
