@@ -97,6 +97,13 @@
   padding: 4px 12px 5px;
 }
 
+input[type="text"] {
+  margin-top: 16px;
+  border-radius: 8px;
+  padding: 5px;
+  border-color: rgba(227, 223, 223, 0.953);
+}
+
 span {
   font-weight: lighter;
 }
