@@ -13,11 +13,11 @@ export function Card({
   definition,
   examples,
   etymology,
-  onCardClick,
-  isOpen,
 }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className={`card ${partOfSpeech}`} onClick={() => onCardClick()}>
+    <div className={`card ${partOfSpeech}`} onClick={() => setIsOpen(!isOpen)}>
       <div className="word-header">
         <img src={`images/${slug}.jpeg`}></img>
         <div className="part-of-speech">

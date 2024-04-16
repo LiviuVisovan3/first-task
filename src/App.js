@@ -1,11 +1,8 @@
 import "./App.css";
 import { Card } from "./components/Card.js";
 import wordList from "./word-list.js";
-import { useState } from "react";
 
 function App() {
-  const [selectedSlugs, setSelectedSlugs] = useState(["nonlogism", "fiut"]);
-
   return (
     <div className="App">
       <div className="page-header">
@@ -19,18 +16,7 @@ function App() {
       </p>
       <h2>Lista nonlogismelor actuale</h2>
       {wordList.map((word) => (
-        <Card
-          key={word.slug}
-          {...word}
-          isOpen={selectedSlugs.some((slug) => slug === word.slug)}
-          onCardClick={() =>
-            selectedSlugs.some((x) => x === word.slug)
-              ? setSelectedSlugs([
-                  ...selectedSlugs.filter((x) => x !== word.slug),
-                ])
-              : setSelectedSlugs([...selectedSlugs, word.slug])
-          }
-        />
+        <Card key={word.slug} {...word} />
       ))}
     </div>
   );
