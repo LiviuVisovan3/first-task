@@ -33,7 +33,7 @@ export function Card({
             {examples?.length && <h4>Examples</h4>}
             <ul>
               {examples?.map((example) => (
-                <li>
+                <li key={example}>
                   <i>{example}</i>
                 </li>
               ))}

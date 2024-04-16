@@ -4,7 +4,7 @@ import wordList from "./word-list.js";
 import { useState } from "react";
 
 function App() {
-  const [selectedSlug, setSelectedSlug] = useState("");
+  const [selectedSlugs, setSelectedSlugs] = useState(["nonlogism", "fiut"]);
 
   return (
     <div className="App">
@@ -20,10 +20,15 @@ function App() {
       <h2>Lista nonlogismelor actuale</h2>
       {wordList.map((word) => (
         <Card
+          key={word.slug}
           {...word}
-          isOpen={word.slug === selectedSlug}
+          isOpen={selectedSlugs.some((slug) => slug === word.slug)}
           onCardClick={() =>
-            setSelectedSlug(word.slug === selectedSlug ? "" : word.slug)
+            selectedSlugs.some((x) => x === word.slug)
+              ? setSelectedSlugs([
+                  ...selectedSlugs.filter((x) => x !== word.slug),
+                ])
+              : setSelectedSlugs([...selectedSlugs, word.slug])
           }
         />
       ))}
